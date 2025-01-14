@@ -1,6 +1,6 @@
 # Web Automation With JavaScript Cypress Framework
 
-### This is a complete project where an [E-commerce](https://magento.softwaretestingboard.com/) site is automated by writing Test Cases using Python selenium and Robot as testing Framework.
+### This is a complete project where an [E-commerce](https://magento.softwaretestingboard.com/) site is automated by writing Test Cases using javaScript Cypress as testing Framework.
 
 
 ## Tool & Technology used in this Project
