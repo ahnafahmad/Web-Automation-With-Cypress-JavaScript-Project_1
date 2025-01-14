@@ -14,6 +14,6 @@ viewcart:'.viewcart',
 pageTitle:'.page-title-wrapper',
 productName:'.product-item-name',
 cartPrice:'.cart-price',
-cartQuantity:'#cart-506599-qty',
+cartQuantity:'[title="Qty"]',
 removeItem:'.action-delete',
 }
