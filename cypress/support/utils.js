@@ -1,22 +1,29 @@
+import {
+    data
+} from "../e2e/data";
+import {
+    elements
+} from "../e2e/elements";
+
 export function signUp(firstName, lastName, email, password, confirmPassword) {
 
-    cy.contains('a', 'Create an Account').click();
+    cy.contains(elements.link, data.createAnAccount).click();
 
-    cy.get('#firstname').type(firstName)
-    cy.get('#lastname').type(lastName)
-    cy.get('#email_address').type(email)
-    cy.get('#password').type(password)
-    cy.get('#password-confirmation').type(confirmPassword)
+    cy.get(elements.firstName).type(firstName)
+    cy.get(elements.lastName).type(lastName)
+    cy.get(elements.emailForSignIn).type(email)
+    cy.get(elements.passwordForSignIn).type(password)
+    cy.get(elements.confirmPassword).type(confirmPassword)
 
-    cy.get('[title="Create an Account"]').click()
+    cy.get(elements.createAnAccount).click()
 
 }
 
 export function login(email, password) {
-    cy.contains('a', 'Sign In').click();
-    cy.get('#email').type(email)
-    cy.get('#pass').type(password)
-    cy.get('#send2').click()
+    cy.contains(elements.link, data.signIn).click();
+    cy.get(elements.emailForLogIn).type(email)
+    cy.get(elements.passwordForLogIn).type(password)
+    cy.get(elements.loginButton).click()
 }
 
 export const generateRandomNumber = (digits) => {

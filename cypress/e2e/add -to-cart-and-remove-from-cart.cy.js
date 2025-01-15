@@ -4,7 +4,9 @@ const {
     generateRandomNumber
 } = require("../support/utils")
 const {
-    data
+    data,
+    paths,
+    message
 } = require("./data")
 const {
     elements
@@ -13,7 +15,7 @@ const {
 describe('Cart Testing', () => {
 
     beforeEach(function () {
-        cy.visit('https://magento.softwaretestingboard.com/')
+        cy.visit(paths.homepage)
     })
 
     it('Add Product To the Cart', () => {
@@ -26,6 +28,7 @@ describe('Cart Testing', () => {
         Cypress.env('email', email);
         Cypress.env('pass', pass);
 
+        //Login
         login(email, pass);
 
         cy.wait(3000)
@@ -33,16 +36,20 @@ describe('Cart Testing', () => {
 
             if (el) {
                 const text = el.text();
-                if (text.includes("The account sign-in was incorrect")) {
+                if (text.includes(message.errorMessage)) {
+
+                    //Create An Account
                     signUp(firstname, lastname, email, pass, pass)
                 }
             }
         })
 
+        //Search Product
         cy.get(elements.searchbar).first().should('be.visible').type(data.secondProduct + '{enter}')
 
         cy.contains(elements.searchedProductLink, data.secondProduct).should('be.visible').click();
 
+        // Choose Size and Color
         cy.get(elements.size).first().click();
         cy.get(elements.color).first().click();
 
@@ -55,6 +62,7 @@ describe('Cart Testing', () => {
             cy.get(elements.addToCart).click()
             cy.wait(3000)
 
+            //View Added Product in the Cart
             cy.get(elements.showCart).click()
 
             cy.get(elements.viewcart).click()
@@ -74,13 +82,18 @@ describe('Cart Testing', () => {
         const email = Cypress.env('email');
         const pass = Cypress.env('pass');
 
+        //Login
         login(email, pass);
         cy.wait(2000)
 
+        //Go to The Cart for Removing the Product
         cy.get(elements.showCart).click()
 
         cy.get(elements.viewcart).click()
 
-        cy.get(elements.removeItem).click()
+        cy.get(elements.removeItem).click();
+
+        //Assertion that the Product is removed
+        cy.get(elements.emptyMessage).should('be.visible').contains(message.emptyCartMessage)
     })
 })
