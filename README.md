@@ -15,8 +15,8 @@
  
   ## Project Scenarios
   - The Search Button is Working Properly.
-  - The Searching result is displating properly
-  - User can Add Products to their Cart By Choosing Color or Size
+  - The Searching result is displaying properly
+  - User can Add Products to their Cart By Choosing a Color or Size
   - User can Remove Products from The Cart.
  
  
@@ -38,18 +38,20 @@ npm install
 ```
  
  
- ## FrameWork Structure
+ ## Framework Structure
 
- -All the Elements have been stored is a js file named elements.js
-- All the desired data has been stored in a js file named data.js
-- In the first Spec file searching functionality is being checked.
-- In the Second Spec file Product Adding to the Cart and removing from the cart is being checked.
+- All elements are stored in a dedicated JavaScript file named elements.js.
+- All required data is organized and stored in a JavaScript file named data.js.
+- The first spec file focuses on testing the search functionality.
+- The second spec file validates the process of adding products to the cart and subsequently removing them.
 
 
 
-## Reasoining for Choosing this Design
- I choose this design because is all the elements are being stored in a file and all the data are being stored in a file then if i need to change the locator or data then i have to change only in that specific file and no need to touch any of the epec file for thay particular changes. I also add a custom method of for signing in and logging in. First User wants to log in to the system but if failed for for not doing registration then the sign in method will be called and the usercan sign in to the system and then he can do his desired operation. and if the user has no registraion issue then he can directly login to the system and starting his operation.
+## Reasoning for Choosing this Design
+I designed this framework to centralize all elements and data within dedicated files. This approach ensures that if a locator or data value needs to be updated, the changes can be made in the respective file without modifying any specific test files, making maintenance more efficient.
 
-I want to make it dynamic frameework as much as possible for me. I want to run this project Independently. That's why I make it dynamic
+Additionally, I implemented a custom method for user authentication. If a user attempts to log in but fails due to the absence of prior registration, the sign-in method is triggered, allowing the user to register and then proceed with their desired operations. If the user is already registered, they can directly log in and begin their tasks seamlessly.
+
+My goal is to create a highly dynamic and flexible framework that can operate independently. This design ensures modularity, scalability, and ease of execution, making the project as autonomous and adaptable as possible.
 
 
